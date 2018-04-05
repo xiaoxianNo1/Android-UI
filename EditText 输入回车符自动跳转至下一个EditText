@@ -1,0 +1,29 @@
+protected void onCreate(Bundle savedInstanceState) {
+
+        editText1.addTextChangedListener(new onClickBackListener());
+    }
+
+
+private class JumpTextWatcher implements TextWatcher{
+
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+            String str=s.toString();
+            if (str.indexOf("\r")>=0 || str.indexOf("\n")>=0){//发现输入回车符或换行符
+                editText1.setText(str.replace("\r","").replace("\n",""));//去掉回车符和换行符
+                editText2.requestFocus();//让editText2获取焦点
+                editText2.setSelection(editText2.getText().length());//若editText2有内容就将光标移动到文本末尾
+            }
+
+        }
+    }
