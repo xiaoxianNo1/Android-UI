@@ -1,0 +1,7 @@
+    private AutoCompleteTextView actv;
+    private ArrayAdapter adapter;
+    private String []countrise={"xasd","xxasd","xxxasd","xxxxasd","xxxxxsad"};
+    
+    
+        adapter=new ArrayAdapter(this,android.R.layout.simple_spinner_item,countrise);
+        actv.setAdapter(adapter);
